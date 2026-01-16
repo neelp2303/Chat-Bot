@@ -62,10 +62,10 @@ io.on("connection", (socket) => {
         const name = socket.data.name;
         if (!name) return;
 
-        // socket.broadcast.emit("system", {
-        //     text: `${name} left the chat`,
-        //     ts: Date.now(),
-        // });
+        socket.broadcast.emit("system", {
+            text: `${name} left the chat`,
+            ts: Date.now(),
+        });
     });
 });
 
