@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Group Chat (WebSocket)</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- Join screen -->
+      <div id="joinScreen" class="card">
+        <h1>Join Group Chat</h1>
+        <p>Enter your name to join the chat.</p>
+        <form id="joinForm">
+          <input
+            id="nameInput"
+            type="text"
+            placeholder="Your name"
+            maxlength="30"
+            autocomplete="name"
+            required
+          />
+          <button type="submit">Enter Chat</button>
+        </form>
+      </div>
+
+      <!-- Chat screen -->
+      <div id="chatScreen" class="card hidden">
+        <div class="topbar">
+          <div>
+            <h2>Global Group Chat</h2>
+            <div id="meLabel" class="me"></div>
+          </div>
+          <button id="leaveBtn" class="ghost">Leave</button>
+        </div>
+
+        <div id="messages" class="messages"></div>
+
+        <form id="msgForm" class="composer">
+          <input
+            id="msgInput"
+            type="text"
+            placeholder="Type a message..."
+            maxlength="500"
+            autocomplete="off"
+          />
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./client.js"></script>
+  </body>
+</html>
